@@ -1,29 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crop Prediction</title>
-    <link rel="stylesheet" href="\static\style.css">
-</head> 
+    <title>Crop Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #0056b3;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #004494;
+        }
+    </style>
+</head>
 <body>
-    <div class="login">
-       <h1>Crop Prediction Model</h1>
-       <form action="{{url_for('predict')}}" method = "post">
-         <input type="text" name="Nitrogen" placeholder="Nitrogen" required/>
-         <input type="text" name="Phosphorus" placeholder="Phosphorus" required/>
-         <input type="text" name="Potassium" placeholder="Potassium" required/>
-         <input type="text" name="Temperature" placeholder="Temperature" required/>
-         <input type="text" name="Humidity" placeholder="Humidity" required/>
-         <input type="text" name="pH" placeholder="pH" required/>
-         <input type="text" name="Rainfall" placeholder="Rainfall" required/>
-
-         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-       </form>
-
-             <h1 id="predi">
-                {{ prediction_text }}
-             </h1>
+    <div class="form-container">
+        <h2>Crop Price Prediction</h2>
+        <form action="/predict" method="POST">
+            <label>State:</label>
+            <select name="state" required>
+                {% for state in states %}
+                    <option value="{{ state }}">{{ state }}</option>
+                {% endfor %}
+            </select>
+            <label>Crop:</label>
+            <select name="crop" required>
+                {% for crop in crops %}
+                    <option value="{{ crop }}">{{ crop }}</option>
+                {% endfor %}
+            </select>
+            <input type="number" step="any" name="cost" placeholder="Cost of Cultivation" required>
+            <input type="number" step="any" name="production" placeholder="Production" required>
+            <input type="number" step="any" name="yield" placeholder="Yield" required>
+            <input type="number" step="any" name="temperature" placeholder="Temperature" required>
+            <input type="number" step="any" name="rainfall" placeholder="Annual Rainfall" required>
+            <button type="submit">Predict Price</button>
+        </form>
     </div>
-  </body>  
+</body>
 </html>

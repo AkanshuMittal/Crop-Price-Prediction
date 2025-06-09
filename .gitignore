@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment folder
+crop_price_prediction/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Flask instance and DB files
+instance/
+*.db
+
+# Logs
+*.log
+
+# Environment variable files (optional)
+.env
+
+# Model and pickle files
+*.pkl
+*.keras
+*.h5
+
+# Upload folders (if used)
+uploads/
+static/uploads/
+
+# Static build files
+*.map

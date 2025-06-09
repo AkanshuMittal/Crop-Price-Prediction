@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e6f0ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .result-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .result-box h2 {
+            color: #0074D9;
+            margin-bottom: 20px;
+        }
+        .result-box a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+        .result-box a:hover {
+            background: #004494;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>Predicted Crop Price: ₹ {{ prediction }}</h2>
+        <a href="/">Predict Again</a>
+    </div>
+</body>
+</html>
