@@ -40,3 +40,5 @@ static/uploads/
 
 # Static build files
 *.map
+
+*.pdf
